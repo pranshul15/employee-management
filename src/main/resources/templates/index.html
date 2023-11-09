@@ -17,15 +17,15 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Emp Id</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
+            <th scope="col">Email Id</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
+          <tr th:each="employee : ${listEmployees}">
+            <!-- <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
@@ -40,10 +40,16 @@
             <th scope="row">3</th>
             <td>Larry</td>
             <td>the Bird</td>
-            <td>@twitter</td>
+            <td>@twitter</td> -->
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.fname}"></td>
+            <td th:text="${employee.lname}"></td>
+            <td th:text="${employee.email}"></td>
+
           </tr>
         </tbody>
       </table>
+      <a href="/register">Register Employee</a>
     </div>
 </body>
 </html>
