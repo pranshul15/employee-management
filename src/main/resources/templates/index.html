@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+    crossorigin="anonymous">
+
+    <title>Employee Management System</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Employee Management System</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Emp Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Delete Emp</th>
+            <th scope="col">Update Emp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="employee : ${listEmployees}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.fname}"></td>
+            <td th:text="${employee.lname}"></td>
+            <td th:text="${employee.email}"></td>
+            <td><a th:href="@{/delete/{emp_no}(emp_no=${employee.id})}">delete</a></td>
+            <td><a th:href="@{/update/{emp_no}(emp_no=${employee.id})}">update</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/register">Register Employee</a>
+    </div>
+</body>
+</html>
